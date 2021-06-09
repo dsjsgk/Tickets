@@ -1530,8 +1530,8 @@ void clean() {
 	printf("0\n");
 }
 int main() {
-	freopen("1.in","r",stdin);
-	freopen("1.ans","w",stdout);
+	//freopen("1.in","r",stdin);
+	//freopen("1.ans","w",stdout);
 	create_file();
 	while(1) {
 		_counter++;
