@@ -820,23 +820,6 @@ inline bool operator < (std::pair<Train,int> &a,std::pair<Train,int> &b) {
 		return len1<len2;
 	}
 }
-//inline void sort1(int a,int b,std::vector<std::pair<answer_to_transfer,int> > &X,std::vector<int> &Y) {
-//	if(b-a<2) return ;
-//	int mid=(b-a-1)/2;
-//	sort1(a,a+mid+1,X,Y);
-//	sort1(a+mid+1,b,X,Y);
-//	int *tmp;
-//	tmp=new int [b-a];
-//	int pos1=0,pos2=mid+1,cur=0;
-//	while(pos1<=mid&&pos2<b-a) {
-//		if(X[Y[pos1+a]]<X[Y[pos2+a]]) pos1++,tmp[cur++]=Y[pos1-1+a];
-//		else pos2++,tmp[cur++]=Y[pos2-1+a];
-//	}
-//	while(pos1<=mid) pos1++,tmp[cur++]=Y[pos1-1+a];
-//	while(pos2<b-a) pos2++,tmp[cur++]=Y[pos2-1+a];
-//	for(int i=a;i<b;++i) Y[i]=tmp[i-a];
-//	delete [] tmp;
-//}
 inline void sort2(int a,int b,std::vector<std::pair<Train,int> > &X,std::vector<int> &Y) {
 	if(b-a<2) return ;
 	int mid=(b-a-1)/2;
@@ -892,10 +875,6 @@ void query_ticket() {
 	}
 	uint tmp1=gethsh(S.name);
 	uint tmp2=gethsh(T.name);
-//	if(tmp1==tmp2) {
-//		std::cout<<0<<"\n";
-//		return ; 
-//	}
 	BPT<std::pair<uint,int>,uint>::iterator it1;
 	it1=Station_mp.nextData(std::make_pair(tmp1,-1));
 	vector<uint> vec;
@@ -1027,14 +1006,8 @@ void query_transfer() {
 			continue;
 		}
 	}
-	if(S.hsh==T.hsh) {
-		std::cout<<0<<"\n";
-		return ; 
-	}
 	BPT<std::pair<uint,int>,uint>::iterator it1;
 	it1=Station_mp.nextData(std::make_pair(S.hsh,-1));
-//	vector<std::pair<answer_to_transfer,int> > ans;
-//	vector<int> Queue;
 	answer_to_transfer _temp;
 	std::pair<answer_to_transfer,int> ans=std::make_pair(_temp,2e9);
 	int exist=0;
