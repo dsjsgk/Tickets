@@ -1565,10 +1565,10 @@ int main() {
             case 15:
             {
                 exit();
-//				fileuser.close();
-//				filetrain.close();
-//				fileorder.close();
-//              	return 0;
+				fileuser.close();
+				filetrain.close();
+				fileorder.close();
+             	return 0;
             }
 		}
 	}
