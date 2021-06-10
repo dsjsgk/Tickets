@@ -59,8 +59,8 @@ template <class Key,class Data>
 class BPT{
 private:
     /**非叶结点最大儿子数M，叶结点最大数据量L**/
-    static constexpr int M = 120;
-    static constexpr int L = 120;
+    static constexpr int M = 130;
+    static constexpr int L = 130;
 
     /**叶结点定义**/
     class leafNode{
