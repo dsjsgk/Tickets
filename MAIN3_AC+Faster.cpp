@@ -149,7 +149,7 @@ class order{
 		long long price;
 		station s,t;
 };
-BPT<uint,int,50,50000> mp("User_bpt");
+BPT<uint,int> mp("User_bpt");
 inline User User_read(int pos) {
 	User a;
 	fileuser.seekg(pos,std::ios::beg);
@@ -215,8 +215,8 @@ inline int Station_write(int pos,Station &a) {
 	filestation.write(reinterpret_cast<char*>(&a),sizeof(a));
 	return cur;
 }
-BPT<std::pair<uint,int>,int,50,100000> Order_mp("Order_bpt"),Wait_mp("Wait_bpt");
-BPT<uint,int,50,100000> Station_mp("Station_bpt");
+BPT<std::pair<uint,int>,int> Order_mp("Order_bpt"),Wait_mp("Wait_bpt");
+BPT<uint,int> Station_mp("Station_bpt");
 bool operator < (station &p,station &q) {
 	int len1=strlen(p.name);
 	int len2=strlen(q.name);
@@ -230,7 +230,7 @@ bool operator == (station &p,station &q) {
 	for(int i=0;i<std::min(len1,len2);++i) if(p.name[i]!=q.name[i]) return 0;
 	return 1; 
 } 
-BPT<uint,int,50,100000> mp_Train("Train_bpt");
+BPT<uint,int> mp_Train("Train_bpt");
 inline void put_date(std::pair<int,int> a) {
 	if(a.first<10) std::cout<<0<<a.first;
 	else std::cout<<a.first;
@@ -1337,7 +1337,6 @@ void buy_ticket() {
 		for(int i=l;i<r;++i) {
 			_temp._Sold[i]+=num;  
 		}
-//		if()
 		Seat_write(tmp._ticketsSold[tt],_temp);
 		order nw;
 		nw.user_id=user_id;
@@ -1401,7 +1400,7 @@ void query_order() {
 		std::cout<<-1<<"\n";
 		return ;
 	}
-	BPT<std::pair<uint,int>,int,50,100000>::iterator it,it2;
+	BPT<std::pair<uint,int>,int>::iterator it,it2;
 	it=Order_mp.nextData(std::make_pair(user_id,-1));
 	int Sum=0;
 	it2=it;
@@ -1442,7 +1441,7 @@ void query_order() {
 	}
 }
 inline void Check_waitlist(uint tmp) {
-	BPT<std::pair<uint,int>,int,50,100000>::iterator it; 
+	BPT<std::pair<uint,int>,int>::iterator it; 
 	it=Wait_mp.nextData(std::make_pair(tmp,-1));
 	vector<int> __v;
 	mp_Train.find(tmp,__v);
@@ -1499,7 +1498,7 @@ void refund_ticket() {
 		printf("-1\n");
 		return ; 
 	}
-	BPT<std::pair<uint,int>,int,50,100000>::iterator it,it2;
+	BPT<std::pair<uint,int>,int>::iterator it,it2;
 	it=Order_mp.nextData(std::make_pair(user_id,-1));
 //	debug(No); 
 	while(1) {
@@ -1533,7 +1532,7 @@ void refund_ticket() {
 	printf("-1\n");
 }
 void exit() {
-	BPT<uint,int,50,50000>::iterator it = mp.begin();
+	BPT<uint,int>::iterator it = mp.begin();
 	for(;!it.end();it++) {
 		int cur=it.data();
 		User tmp=User_read(cur);
@@ -1587,7 +1586,6 @@ int main() {
 				if(ok) {tp=i;break;}
 			}
 		}
-//		debug(tp);
 		switch(tp) {
 			case 0:add_user();break;
             case 1:login();break;
