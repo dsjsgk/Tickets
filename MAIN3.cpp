@@ -1198,7 +1198,7 @@ void query_transfer() {
 					else res=std::make_pair(o,o.price); 
 					if(Compare(res,ans)) ans=res; 
 					exist=1;	
-					assert((Sum1!=282||Sum2!=442));
+					//assert((Sum1!=282||Sum2!=442));
 				continue;
 			}
 		}
