@@ -1126,6 +1126,7 @@ void query_transfer() {
 			arrmid2=tmp.tim[ok+i+1][0];
 			vector<int> _V_2;
 			Station_mp.find(mid.hsh,_V_2);
+			if(_V_2.size()==0) continue;
 			int Stationcur2=_V_2[0]; 
 			Station Station_mid=Station_read(Stationcur2);
 			for(int T2=1;T2<=Station_mid.Num;++T2) {
