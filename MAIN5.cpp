@@ -878,7 +878,7 @@ class answer_to_transfer{
 		std::pair<int,int> lev1,lev2,arr1,arr2,leavemid1,leavemid2,arrmid1,arrmid2;
 		int price,seat,time,time1,time2,price1,price2,seat1,seat2;
 		station mid;
-		char s1[110],s2[110];
+		char s1[31],s2[31];
 };
 inline bool Compare (std::pair<answer_to_transfer,int> &a,std::pair<answer_to_transfer,int> &b) {
 	if(a.second!=b.second) return a.second<b.second;
