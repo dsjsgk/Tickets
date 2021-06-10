@@ -1427,21 +1427,21 @@ void query_order() {
 		std::cout<<-1<<"\n";
 		return ;
 	}
-	BPT<std::pair<uint,int>,int>::iterator it,it2;
+	BPT<std::pair<uint,int>,int>::iterator it;
 	it=Order_mp.nextData(std::make_pair(user_id,-1));
 	int Sum=0;
-	it2=it;
+	vector<int> _pos;
 	while(1) {
 		if(it.end()) break;
 		if(it.key().first!=user_id) break;
+		_pos.push_back(it.data());
 		it++;
 		Sum++;
+		
 	}
 	std::cout<<Sum<<"\n";
-	while(1) {
-		if(it2.end()) break;
-		if(it2.key().first!=user_id) break;
-		order tmp=order_read(it2.data());
+	for(int i=0;i<Sum;++i)  {
+		order tmp=order_read(_pos[i]);
 		if(tmp.status==1) std::cout<<"[success] ";
 		if(tmp.status==0) std::cout<<"[pending] ";
 		if(tmp.status==-1) std::cout<<"[refunded] ";
@@ -1464,7 +1464,6 @@ void query_order() {
 		std::cout<<" ";
 		put_time(t4);
 		std::cout<<" "<<tmp.price<<" "<<tmp.Num<<"\n"; 
-		it2++;
 	}
 }
 inline void Check_waitlist(uint tmp) {
