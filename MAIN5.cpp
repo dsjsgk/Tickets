@@ -118,15 +118,15 @@ class Train{
 	public:
 	Train() {
 		released=0;
-		memset(_ticketsSold,0,sizeof(_ticketsSold));
+//		memset(_ticketsSold,0,sizeof(_ticketsSold));
 		memset(_trainID,0,sizeof(_trainID));
 		_stationNum=_seatNum=0;
-		memset(_prices,0,sizeof(_prices));
-		memset(_travelTimes,0,sizeof(_travelTimes));
-		memset(_stopoverTimes,0,sizeof(_stopoverTimes));
+//		memset(_prices,0,sizeof(_prices));
+//		memset(_travelTimes,0,sizeof(_travelTimes));
+//		memset(_stopoverTimes,0,sizeof(_stopoverTimes));
 		_st=_ed=_starttime=std::make_pair(0,0);
 		memset(g,0,sizeof(g));
-		for(int i=0;i<101;++i) tim[i][0]=tim[i][1]=std::make_pair(0,0);
+//		for(int i=0;i<101;++i) tim[i][0]=tim[i][1]=std::make_pair(0,0);
 	}
 	friend void add_train();
 	friend void release_train();
@@ -1234,14 +1234,10 @@ void query_transfer() {
 			}
 		}
 	}
-//	debug(2);
-//	sort1(0,Queue.size(),ans,Queue);
 	if(exist==0) {
 		std::cout<<0<<"\n";
 		return ; 
 	}
-//	int i=Queue[0];
-//	for(int i=0;i<ans.size();++i) debug(ans[Queue[i]].second);
 		answer_to_transfer anss=ans.first;
 		printf("%s %s ",anss.s1,S.name);
 		put_date(anss.lev1);
