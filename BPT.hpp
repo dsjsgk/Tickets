@@ -55,7 +55,7 @@ public:
     void clear(){top = 0;}
 };
 
-template <class Key,class Data,int Cap1 = 379,int Cap2 = 18000>
+template <class Key,class Data,int Cap1 = 379,int Cap2 = 30000>
 class BPT{
 private:
     /**非叶结点最大儿子数M，叶结点最大数据量L**/
