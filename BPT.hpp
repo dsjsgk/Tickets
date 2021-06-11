@@ -55,11 +55,11 @@ public:
     void clear(){top = 0;}
 };
 
-template <class Key,class Data,int Cap1 = 379,int Cap2 = 60000>
+template <class Key,class Data,int Cap1 = 379,int Cap2 = 40000>
 class BPT{
 private:
     /**非叶结点最大儿子数M，叶结点最大数据量L**/
-    static constexpr int M = 130;
+    static constexpr int M = 120;
     static constexpr int L = 120;
 
     /**叶结点定义**/
