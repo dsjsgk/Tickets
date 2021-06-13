@@ -1,0 +1,9 @@
+分工：李波含负责写bpt及其余数据结构，王硕负责写逻辑部分
+
+BPT:
+
+
+
+逻辑：
+整体上使用bpt做哈希表，用来维护user train和order的信息。
+class user由
